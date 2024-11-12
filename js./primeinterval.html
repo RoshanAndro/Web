@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>Prime Numbers within Interval</title>
+    <style>
+        .box {
+            width: 320px;      
+            height: 190px;     
+            border: 1px solid #000000; 
+            margin: 10px auto; 
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div class="box">
+    <h2>Prime Numbers within Interval</h2>
+    <form>
+        <label>Lower Prime_No:</label>
+        <input type="number" id="lower" value=""><br><br>
+        <label>Upper Prime_No:</label>
+        <input type="number" id="upper" value=""><br><br>
+         &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;<input type="button" onclick="printPrimes()" value="Print Primes">
+        &nbsp;<input type="button" onclick="resetForm()" value="Reset"><br>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        function printPrimes() {
+            let lower = parseInt(document.getElementById("lower").value);
+            let upper = parseInt(document.getElementById("upper").value);
+            if (lower > upper) {
+                document.getElementById("result").innerHTML = "Invalid interval. Lower bound should be less than or equal to upper bound.";
+            } else {
+                let primeNumbers = "";
+                for (let num = lower; num <= upper; num++) {
+                    if (isPrime(num)) {
+                        primeNumbers += num + ", ";
+                    }
+                }
+                if (primeNumbers === "") {
+                    document.getElementById("result").innerHTML = "No prime numbers found within the interval.";
+                } else {
+                    document.getElementById("result").innerHTML = "Prime numbers within the interval: " + primeNumbers.slice(0, -2);
+                }
+            }
+        }
+
+        function isPrime(num) {
+            if (num <= 1) {
+                return false;
+            }
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function resetForm() {
+            document.getElementById("lower").value = "";
+            document.getElementById("upper").value = "";
+            document.getElementById("result").innerHTML = "";
+        }
+    </script>
+    </center></div>
+</body>
+</html>

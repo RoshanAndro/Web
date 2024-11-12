@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Square of a Number</title>
+    <style>
+        .box {
+            width: 250px;      
+            height: 180px;     
+            border: 1px solid #000000; 
+            margin: 5px auto; 
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div class="box">
+    <h2>Square of a Number</h2>
+    <form><br>
+        <label>Number:</label>
+        &nbsp;<input type="number" id="num" value=""><br><br>
+        &emsp;&emsp;&emsp;<input type="button" onclick="calculateSquare()" value="Calculate">
+        &nbsp;<input type="button" onclick="resetForm()" value="Reset"><br>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function calculateSquare() {
+            let num = parseFloat(document.getElementById("num").value);
+            let square = num * num;
+            document.getElementById("result").innerHTML = "Square of " + num + ": " + square;
+        }
+
+        function resetForm() {
+            document.getElementById("num").value = "";
+            document.getElementById("result").innerHTML = "";
+        }
+    </script>
+    </center></div>
+</body>
+</html>
