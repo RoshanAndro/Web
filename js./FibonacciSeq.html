@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Fibonacci Sequence</title>
+    <style>
+        .box{
+            width: 270px;
+            height: 200px;
+            border: 1px solid #000000;
+            margin: 6px auto;
+            padding: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"><center>
+        <h2>Fibonacci Sequence</h2>
+        <input type="number" id="num"><br><br>
+        <button type="button" onclick="generateFib()">Generate</button>
+        &nbsp;<input type="button" onclick="resetForm()" value="Reset"><br>
+        <p id="result"></p></center>
+    </div>
+
+    <script>
+        function generateFib() {
+            var num = parseInt(document.getElementById("num").value);
+            if (isNaN(num) || num < 1) {
+                document.getElementById("result").innerHTML = "Invalid input";
+            } else {
+                var fibSeq = [0, 1];
+                while (fibSeq.length < num) {
+                    fibSeq.push(fibSeq[fibSeq.length - 1] + fibSeq[fibSeq.length - 2]);
+                }
+                document.getElementById("result").innerHTML = "Fibonacci Sequence: " + fibSeq.join(", ");
+            }
+        }
+        function resetForm() {
+            document.getElementById("num").value = "";
+            document.getElementById("result").innerHTML = "";
+        }
+    </script>
+</body>
+</html>

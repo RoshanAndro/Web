@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Factors of a Number</title>
+    <style>
+    	.box{
+      	    width: 270px;
+            height: 170px;
+            border: 1px solid #000000;
+            margin: 6px auto;
+            padding: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"><center>
+        <h2>Factors of a Number</h2>
+        <input type="number" id="num"><br><br>
+        <button onclick="calFactors()">Calculate</button>
+         &nbsp;<input type="button" onclick="resetForm()" value="Reset"><br>
+        <p id="result"></p>
+    </center></div>
+
+    <script>
+        function calFactors() {
+            var num = parseInt(document.getElementById("num").value);
+            if (isNaN(num) || num < 1) {
+                document.getElementById("result").innerHTML = "Please enter a positive integer";
+            } else {
+                var factors = "";
+                for (var i = 1; i <= num; i++) {
+                    if (num % i === 0) {
+                        factors += i + ", ";
+                    }
+                }
+                document.getElementById("result").innerHTML = "Factors: " + factors.slice(0, -2);
+            }
+        }
+         function resetForm() {
+            document.getElementById("num").value = "";
+            document.getElementById("result").innerHTML = "";
+        }
+    </script>
+</body>
+</html>
