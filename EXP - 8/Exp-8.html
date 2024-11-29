@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Change Background Color</title>
+    <style>
+        body {
+            transition: background-color 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 20px; 
+            cursor: pointer;
+            background-color: whitesmoke; 
+            color: black; 
+        }
+    </style>
+</head>
+
+<body>
+    <button id="changeColorBtn" onclick="colorchange()">Change Color</button>
+
+    <script>
+        let colors = ["Red", "Green", "Blue", "Yellow", "Orange"];
+        let i = 0;
+        let maxColors = colors.length;
+
+        function colorchange() {
+            if(i < maxColors) {
+                document.body.style.background = colors[i];
+                i++;
+            } else {
+                i = 0;
+                document.body.style.background = colors[i];
+                i++;
+            }
+        }
+    </script>
+</body>
+</html>
