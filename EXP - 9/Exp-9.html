@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Over Effect</title>
+</head>
+
+<body>
+    <h2 id="text">Hello</h2>
+    <img id="image" src="fo.png" onmouseover="onMouseOver()" onmouseout="onMouseOut()" height="200px" width="300px">
+    
+    <script>
+        function onMouseOver() {
+            document.getElementById('text').innerText = 'Welcome To FORD';
+            document.getElementById('image').src = 'fo.png'; 
+        }
+
+        function onMouseOut() {
+            document.getElementById('text').innerText = 'Welcome To TOYOTA';
+            document.getElementById('image').src = 'to.png'; 
+        }
+    </script>
+</body>
+</html>
